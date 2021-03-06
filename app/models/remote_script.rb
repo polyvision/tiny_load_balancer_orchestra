@@ -1,0 +1,2 @@
+class RemoteScript < ApplicationRecord
+end

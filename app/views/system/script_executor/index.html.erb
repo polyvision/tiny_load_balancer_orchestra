@@ -1,0 +1,33 @@
+<h1>Script Executor</h1>
+
+<%= form_tag({action: 'execute'},{method: 'post'}) do %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th></th>
+        <th>ID</th>
+        <th>Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @load_balancer_entities.each do |lb| %>
+        <tr>
+          <td><input type="checkbox" name="selected_lb_ids[]" class="" value="<%= lb.id %>" id="lb_check_box_<%= lb.id %>"></td>
+          <td><label for="lb_check_box_<%= lb.id %>"><%= lb.id %></label></td>
+          <td><label for="lb_check_box_<%= lb.id %>"><%= lb.name %></label></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <div class="form-group">
+    <label>Remote Skript:</label>
+    <select name="remote_script_id">
+      <%= options_for_select(@remote_scripts.map{ |item| [item.name,item.id] }) %>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <button type="submit" class="btn btn-primary">Ausführen</button>
+  </div>
+<% end %>

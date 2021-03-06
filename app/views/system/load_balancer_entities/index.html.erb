@@ -1,0 +1,40 @@
+<h1>Load Balancers</h1>
+<div class="float-right">
+  <%= link_to({action: 'new'},{class: 'btn btn-sm btn-primary'}) do %>
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-node-plus" viewBox="0 0 16 16">
+      <path fill-rule="evenodd" d="M11 4a4 4 0 1 0 0 8 4 4 0 0 0 0-8zM6.025 7.5a5 5 0 1 1 0 1H4A1.5 1.5 0 0 1 2.5 10h-1A1.5 1.5 0 0 1 0 8.5v-1A1.5 1.5 0 0 1 1.5 6h1A1.5 1.5 0 0 1 4 7.5h2.025zM11 5a.5.5 0 0 1 .5.5v2h2a.5.5 0 0 1 0 1h-2v2a.5.5 0 0 1-1 0v-2h-2a.5.5 0 0 1 0-1h2v-2A.5.5 0 0 1 11 5zM1.5 7a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1z"/>
+    </svg>
+    <%= t('section.load_balancer_entities.new') %>
+  <% end %>
+</div>
+
+<table class="table table-bordered table-condensed">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>IP</th>
+      <th>SSH User</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @load_balancers.each do |lb| %>
+      <tr>
+        <td><%= link_to(lb.id,{action: 'edit', id: lb.id}) %></td>
+        <td><%= link_to(lb.name,{action: 'edit', id: lb.id}) %></td>
+        <td><%= lb.ip %></td>
+        <td><%= lb.ssh_user_name %></td>
+        <td><%= lb.ssh_port %></td>
+        <td>
+          <%= link_to({action: 'destroy', id: lb.id, controller: '/system/load_balancer_entities'},{method: 'delete', "data-confirm": "Load Balancer entfernen?",class: 'btn btn-warning'}) do %>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+              <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+              <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+            </svg>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tiny LoadBalancer Orchestra</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+      <a class="navbar-brand" href="/">Tiny LoadBalancer Orchestra</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <%= link_to({controller: 'system/load_balancer_entities'},class:"nav-link") do %>
+              Load Balancers Entities
+              <% end %>
+          </li>
+          <li class="nav-item">
+            <%= link_to({controller: 'system/remote_scripts'},class:"nav-link") do %>
+              Remote Scripts
+              <% end %>
+          </li>
+          <li class="nav-item">
+            <%= link_to({controller: 'system/script_executor'},class:"nav-link") do %>
+              Script Executor
+              <% end %>
+          </li>
+          
+        </ul>
+      </div>
+    </nav>
+
+    <main role="main" class="container">
+
+      <%= yield %>
+
+    </main><!-- /.container -->
+  </body>
+</html>

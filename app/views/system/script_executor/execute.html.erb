@@ -1,0 +1,20 @@
+<% @script_executor_adapter.result.each do |sea_result| %>
+  <h2>
+    <%= sea_result.load_balancer_entity.name %>
+    <% if sea_result.success %>
+      <span class="badge badge-success">Success</span>
+    <% else %>
+      <span class="badge badge-danger">Failed</span>
+    <% end %>
+  </h2>
+  <strong>Script: <%= sea_result.remote_script.name %></strong>
+  <div class="card">
+    <div class="card-body">
+      <% if sea_result.success%>
+        <pre><code class="language-bash"><%= sea_result.remote_output %></code></pre>
+      <% else %>
+        <pre><code class="language-bash"><%= sea_result.error_message %></code></pre>
+      <% end %>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,8 @@
+en:
+  section:
+    load_balancer_entities:
+      new: new entity
+      delete: delete
+    remote_scripts:
+      delete: delete
+      new: new remote script

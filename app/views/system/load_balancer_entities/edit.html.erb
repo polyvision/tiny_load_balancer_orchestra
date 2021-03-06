@@ -1,0 +1,6 @@
+<h1>Load Balancer bearbeiten</h1>
+
+<%= form_for(@load_balancer,url: {action: 'update', id: @load_balancer.id}) do |f| %>
+  <%= render partial: 'form', locals: {f: f }%>
+  <%= f.submit 'speichern', class: 'btn btn-primary' %>
+<% end %>

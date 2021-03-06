@@ -1,0 +1,6 @@
+<h1>Remote Script bearbeiten</h1>
+
+<%= form_for(@remote_script,url: {action: 'update', id: @remote_script.id}) do |f| %>
+  <%= render partial: 'form', locals: {f: f }%>
+  <%= f.submit 'speichern', class: 'btn btn-primary' %>
+<% end %>
