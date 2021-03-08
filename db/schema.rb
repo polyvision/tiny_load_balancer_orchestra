@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_06_084644) do
+ActiveRecord::Schema.define(version: 2021_03_08_075236) do
 
   create_table "load_balancer_entities", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
@@ -27,6 +27,31 @@ ActiveRecord::Schema.define(version: 2021_03_06_084644) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "name"
     t.text "content"
+  end
+
+  create_table "script_execution_logs", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "load_balancer_entity_id"
+    t.integer "remote_script_id"
+    t.text "content"
+    t.integer "executed_by"
+    t.datetime "executed_at"
+    t.index ["executed_by"], name: "index_script_execution_logs_on_executed_by"
+    t.index ["load_balancer_entity_id"], name: "index_script_execution_logs_on_load_balancer_entity_id"
+    t.index ["remote_script_id"], name: "index_script_execution_logs_on_remote_script_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
 end

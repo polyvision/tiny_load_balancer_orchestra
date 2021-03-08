@@ -1,4 +1,4 @@
-class System::ScriptExecutorController < ApplicationController
+class System::ScriptExecutorController < SystemController
   def index
     @load_balancer_entities = LoadBalancerEntity.order(name: :desc)
     @remote_scripts = RemoteScript.order(name: :desc)

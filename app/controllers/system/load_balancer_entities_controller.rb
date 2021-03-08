@@ -1,4 +1,4 @@
-class System::LoadBalancerEntitiesController < ApplicationController
+class System::LoadBalancerEntitiesController < SystemController
   def index
     @load_balancers = LoadBalancerEntity.order(name: :desc)    
   end

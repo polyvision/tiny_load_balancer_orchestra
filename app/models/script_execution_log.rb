@@ -1,0 +1,2 @@
+class ScriptExecutionLog < ApplicationRecord
+end

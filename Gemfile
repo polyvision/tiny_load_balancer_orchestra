@@ -20,6 +20,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'net-ssh'
 gem 'ed25519'
 gem 'bcrypt_pbkdf'
+gem 'devise'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'

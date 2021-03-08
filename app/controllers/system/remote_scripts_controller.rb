@@ -1,4 +1,4 @@
-class System::RemoteScriptsController < ApplicationController
+class System::RemoteScriptsController < SystemController
   def index
     @remote_scripts = RemoteScript.order(name: :desc)    
   end

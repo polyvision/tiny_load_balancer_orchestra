@@ -1,2 +1,2 @@
-class System::DashboardController < ApplicationController
+class System::DashboardController < SystemController
 end
