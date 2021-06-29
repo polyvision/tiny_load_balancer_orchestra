@@ -12,6 +12,7 @@ This project uses Ruby on Rails 6, sqlite3 and Ruby's NET:SSH for remotly login 
      RAILS_ENV=production rake db:create 
      RAILS_ENV=production rake db:migrate
      RAILS_ENV=production rake db:seed
+     RAILS_ENV=production rake assets:precompile
 
 Default user is **admin@admin.de** with password **12345!** 
 ## Version history:
